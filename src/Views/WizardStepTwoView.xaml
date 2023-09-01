@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:WizardView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:WizardDemo.Controls"
+                     xmlns:viewmodels="clr-namespace:WizardDemo.ViewModels"
+                     x:DataType="viewmodels:MainViewModel"
+             x:Class="WizardDemo.Views.WizardStepTwoView"
+                     Title="Step Two">
+    <VerticalStackLayout Spacing="20">
+
+        <Label Text="Name Your Wizard" FontSize="Large" TextColor="{StaticResource Primary}"/>
+
+        <Label Text="Your wizard needs a name"/>
+
+        <Grid ColumnDefinitions="50, *" RowDefinitions="50" ColumnSpacing="10">
+            <Label Text="Name" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" BackgroundColor="{StaticResource Gray950}" Padding="10,0" HorizontalOptions="Fill" Grid.Column="1">
+                <Entry Placeholder="Enter your wizards name..." Text="{Binding Name}"/>
+            </Border>
+        </Grid>
+
+        <Grid ColumnDefinitions="50, *" RowDefinitions="50" ColumnSpacing="10">
+            <Label Text="Age" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" BackgroundColor="{StaticResource Gray950}" Padding="10,0" HorizontalOptions="Fill" Grid.Column="1">
+                <Picker SelectedItem="{Binding Age}" Title="Select Age...">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Young</x:String>
+                            <x:String>Middle Aged</x:String>
+                            <x:String>Old</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Border>
+        </Grid>
+
+        <Grid ColumnDefinitions="50, *" RowDefinitions="50" ColumnSpacing="10">
+            <Label Text="Class" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" BackgroundColor="{StaticResource Gray950}" Padding="10,0" HorizontalOptions="Fill" Grid.Column="1">
+                <Picker SelectedItem="{Binding WizardClass}" Title="Choose Class....">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Conjurer</x:String>
+                            <x:String>Enchanter</x:String>
+                            <x:String>Necomancer</x:String>
+                            <x:String>Hemomancer</x:String>
+                            <x:String>Transmuter</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Border>
+        </Grid>
+    </VerticalStackLayout>
+</controls:WizardView>
+

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:WizardView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:WizardDemo.Controls"
+                     xmlns:fa="clr-namespace:FontAwesome"
+             x:Class="WizardDemo.Views.WizardStepOneView"
+                     Title="Step One">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20,0" Spacing="20">
+        <Image>
+            <Image.Source>
+                <FontImageSource Glyph="{x:Static fa:FontAwesomeIcons.HatWizard}" FontFamily="FASolid" Color="{StaticResource Primary}" Size="100"/>
+            </Image.Source>
+        </Image>
+        <Label Text="Wizard Steps Control Demo" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" />
+        <Label Text="This is a sample app based on Redth's blog post about creating a step by step wizard control in Maui. I was interested in the blog and wanted to investigate its implementation, and see how extensible the idea is."/>
+    </VerticalStackLayout>
+</controls:WizardView>
+

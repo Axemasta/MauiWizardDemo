@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WizardDemo.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WizardDemo.Controls"
+    xmlns:fa="clr-namespace:FontAwesome"
+    xmlns:viewmodels="clr-namespace:WizardDemo.ViewModels"
+    xmlns:views="clr-namespace:WizardDemo.Views"
+    x:DataType="viewmodels:MainViewModel"
+    Title="MainPage">
+
+    <Grid
+        Padding="20"
+        RowDefinitions="*, Auto"
+        RowSpacing="20">
+        <controls:WizardStepsControl x:Name="stepControl" CompletedCommand="{Binding CompleteWizardCommand}">
+            <views:WizardStepOneView />
+            <views:WizardStepTwoView />
+            <views:WizardStepThreeView />
+        </controls:WizardStepsControl>
+
+        <Grid
+            Grid.Row="1"
+            ColumnDefinitions="*, *"
+            ColumnSpacing="20">
+            <Button
+                x:Name="backButton"
+                Grid.Column="0"
+                Clicked="OnButtonClicked"
+                ContentLayout="Left, 20"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                Text="Back">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="FASolid"
+                        Glyph="{x:Static fa:FontAwesomeIcons.ArrowLeft}"
+                        Color="{AppThemeBinding Light={StaticResource White},
+                                                Dark={StaticResource Primary}}" />
+                </Button.ImageSource>
+            </Button>
+            <Button
+                x:Name="nextButton"
+                Grid.Column="1"
+                Clicked="OnButtonClicked"
+                ContentLayout="Right, 20"
+                FontAttributes="Bold"
+                HorizontalOptions="End"
+                Text="Next">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="FASolid"
+                        Glyph="{x:Static fa:FontAwesomeIcons.ArrowRight}"
+                        Color="{AppThemeBinding Light={StaticResource White},
+                                                Dark={StaticResource Primary}}" />
+                </Button.ImageSource>
+            </Button>
+        </Grid>
+    </Grid>
+</ContentPage>
