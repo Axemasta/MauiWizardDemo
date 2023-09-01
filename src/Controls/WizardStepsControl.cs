@@ -1,6 +1,5 @@
 ﻿using System.Windows.Input;
 using Maui.BindableProperty.Generator.Core;
-
 namespace WizardDemo.Controls;
 
 public partial class WizardStepsControl : Grid
@@ -25,9 +24,7 @@ public partial class WizardStepsControl : Grid
             ve.IsVisible = false;
 
             if (GetCurrentIndex() < 0)
-            {
                 ve.IsVisible = true;
-            }
         }
 
         base.OnChildAdded(child);
@@ -36,10 +33,8 @@ public partial class WizardStepsControl : Grid
     public int GetCurrentIndex()
     {
         for (var i = 0; i < Children.Count; i++)
-        {
             if (Children[i] is VisualElement ve && ve.IsVisible)
                 return i;
-        }
 
         return -1;
     }
@@ -47,11 +42,9 @@ public partial class WizardStepsControl : Grid
     private void SetCurrentSegmentTitle(IView view)
     {
         if (view is WizardView wizardView)
-        {
             CurrentSegmentTitle = wizardView.Title;
-        }
     }
-    
+
     public async Task Forward()
     {
         var c = GetCurrentIndex();
@@ -64,18 +57,19 @@ public partial class WizardStepsControl : Grid
             CompletedCommand?.Execute(null);
             return;
         }
+
         if (currentIndex == nextIndex)
             return;
 
         var currentView = Children[currentIndex] as VisualElement;
         var nextView = Children[nextIndex] as VisualElement;
 
-        nextView.TranslationX = this.Width;
+        nextView.TranslationX = Width;
         nextView.IsVisible = true;
 
         await Task.WhenAll(
             nextView.TranslateTo(0, 0, 500, Easing.CubicInOut),
-            currentView.TranslateTo(-1 * this.Width, 0, 500, Easing.CubicInOut));
+            currentView.TranslateTo(-1 * Width, 0, 500, Easing.CubicInOut));
 
         currentView.IsVisible = false;
         currentView.TranslationX = 0;
@@ -100,12 +94,12 @@ public partial class WizardStepsControl : Grid
         var currentView = Children[currentIndex] as VisualElement;
         var nextView = Children[nextIndex] as VisualElement;
 
-        nextView.TranslationX = -1 * this.Width;
+        nextView.TranslationX = -1 * Width;
         nextView.IsVisible = true;
 
         await Task.WhenAll(
             nextView.TranslateTo(0, 0, 500, Easing.CubicInOut),
-            currentView.TranslateTo(this.Width, 0, 500, Easing.CubicInOut));
+            currentView.TranslateTo(Width, 0, 500, Easing.CubicInOut));
 
         currentView.IsVisible = false;
         currentView.TranslationX = 0;
@@ -134,7 +128,6 @@ public partial class WizardStepsControl : Grid
 public class StepChangedEventArgs : EventArgs
 {
     public StepChangedEventArgs(int previousStepIndex, int stepIndex)
-        : base()
     {
         PreviousStepIndex = previousStepIndex;
         StepIndex = stepIndex;

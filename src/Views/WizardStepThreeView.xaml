@@ -1,25 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <controls:WizardView
     x:Class="WizardDemo.Views.WizardStepThreeView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WizardDemo.Controls"
     xmlns:viewmodels="clr-namespace:WizardDemo.ViewModels"
     x:DataType="viewmodels:MainViewModel"
-    xmlns:controls="clr-namespace:WizardDemo.Controls"
     Title="Step Three">
     <VerticalStackLayout Spacing="20">
-        <Label Text="Choose Your Magic" FontSize="Large" TextColor="{StaticResource Primary}"/>
+        <Label
+            FontSize="Large"
+            Text="Choose Your Magic"
+            TextColor="{StaticResource Primary}" />
 
-        <Label Text="Magic Spells in Elden Ring are cast by players in the form of Sorceries and Incantations. From conjuring glintstone pebbles to invoking the power of a dragon's breath, spells cover a wide variety of offensive, defensive, and utility functions. This page covers the basics of using spells and each spell available in the game."/>
+        <Label Text="Magic Spells in Elden Ring are cast by players in the form of Sorceries and Incantations. From conjuring glintstone pebbles to invoking the power of a dragon's breath, spells cover a wide variety of offensive, defensive, and utility functions. This page covers the basics of using spells and each spell available in the game." />
 
         <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, *">
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnSorceriesTapped"/>
+                <TapGestureRecognizer Tapped="OnSorceriesTapped" />
             </Grid.GestureRecognizers>
 
-            <CheckBox x:Name="sorceriesCheckBox" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" IsChecked="{Binding UseSorcery}"/>
+            <CheckBox
+                x:Name="sorceriesCheckBox"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                IsChecked="{Binding UseSorcery}" />
 
-            <Label Text="Sorceries" FontAttributes="Bold" Grid.Column="1"/>
+            <Label
+                Grid.Column="1"
+                FontAttributes="Bold"
+                Text="Sorceries" />
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
@@ -28,12 +40,20 @@
 
         <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, *">
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnIncantationsTapped"/>
+                <TapGestureRecognizer Tapped="OnIncantationsTapped" />
             </Grid.GestureRecognizers>
 
-            <CheckBox x:Name="incantationsCheckBox" Grid.Column="0" IsChecked="{Binding UseIncantations}" Grid.Row="0" Grid.RowSpan="2"/>
+            <CheckBox
+                x:Name="incantationsCheckBox"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                IsChecked="{Binding UseIncantations}" />
 
-            <Label Text="Incantations" FontAttributes="Bold" Grid.Column="1"/>
+            <Label
+                Grid.Column="1"
+                FontAttributes="Bold"
+                Text="Incantations" />
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
@@ -42,4 +62,3 @@
 
     </VerticalStackLayout>
 </controls:WizardView>
-

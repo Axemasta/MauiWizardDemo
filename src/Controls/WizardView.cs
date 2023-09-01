@@ -2,6 +2,5 @@
 
 public class WizardView : ContentView
 {
-	public string Title { get; set; }
+    public string Title { get; set; }
 }
-

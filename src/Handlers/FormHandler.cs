@@ -1,5 +1,4 @@
-﻿using Microsoft.Maui;
-using System.Drawing;
+﻿using Microsoft.Maui.Handlers;
 
 #if IOS
 using UIKit;
@@ -13,7 +12,7 @@ public static class FormHandler
     // https://dev.to/vhugogarcia/remove-entry-and-picker-borders-in-net-maui-2pk2
     public static void RemoveBorders()
     {
-        Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("Borderless", (handler, view) =>
+        EntryHandler.Mapper.AppendToMapping("Borderless", (handler, view) =>
         {
 #if ANDROID
             handler.PlatformView.Background = null;
@@ -25,7 +24,7 @@ public static class FormHandler
 #endif
         });
 
-        Microsoft.Maui.Handlers.PickerHandler.Mapper.AppendToMapping("Borderless", (handler, view) =>
+        PickerHandler.Mapper.AppendToMapping("Borderless", (handler, view) =>
         {
 #if ANDROID
             handler.PlatformView.Background = null;
